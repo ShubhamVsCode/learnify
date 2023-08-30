@@ -12,8 +12,7 @@ export interface IUser extends Document {
     email: string;
     password: string;
     role: Role;
-    courseCreated?: string[]; // Optional array of course IDs created by admin
-    courseEnrolled?: string[]; // Optional array of course IDs enrolled by user
+    courseEnrolled?: string[];
 }
 
 const userSchema: Schema = new Schema({
@@ -34,12 +33,8 @@ const userSchema: Schema = new Schema({
     role: {
         type: String,
         default: Role.USER,
-        enum: [Role.ADMIN, Role.SUPERADMIN, Role.SUBADMIN, Role.USER],
+        enum: [Role.SUPERADMIN, Role.ADMIN, Role.SUBADMIN, Role.USER],
     },
-    courseCreated: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Course'
-    }],
     courseEnrolled: [{
         type: Schema.Types.ObjectId,
         ref: 'Course'

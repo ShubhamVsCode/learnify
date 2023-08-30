@@ -48,12 +48,8 @@ const userSchema = new mongoose_1.Schema({
     role: {
         type: String,
         default: Role.USER,
-        enum: [Role.ADMIN, Role.SUPERADMIN, Role.SUBADMIN, Role.USER],
+        enum: [Role.SUPERADMIN, Role.ADMIN, Role.SUBADMIN, Role.USER],
     },
-    courseCreated: [{
-            type: mongoose_1.Schema.Types.ObjectId,
-            ref: 'Course'
-        }],
     courseEnrolled: [{
             type: mongoose_1.Schema.Types.ObjectId,
             ref: 'Course'
