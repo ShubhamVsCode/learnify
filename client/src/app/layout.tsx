@@ -1,3 +1,5 @@
+import Sidebar from "@/components/core/Sidebar";
+import Navbar from "@/components/core/Navbar";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -16,7 +18,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Navbar />
+        <section className="grid grid-cols-6">
+          <aside className="px-6">
+            <Sidebar />
+          </aside>
+          <main className="col-span-5">{children}</main>
+        </section>
+      </body>
     </html>
   );
 }
